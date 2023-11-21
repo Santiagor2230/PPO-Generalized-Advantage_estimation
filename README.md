@@ -35,8 +35,10 @@ PPO with Generalized-Advantage_estimation
 
 # optimizer
 Policy: AdamW
+
 Value: AdamW
 
 # loss function
 Policy: clipped surrogate objective function
+
 Value: smooth L1 loss function
