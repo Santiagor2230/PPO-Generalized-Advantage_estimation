@@ -76,7 +76,7 @@ class PPO(LightningModule):
 
       surrogate_1 = rho * gae_b
       surrogate_2 = rho.clip(1-self.hparams.epsilon, 1 + self.hparams.epsilon) * gae_b
-      policy_loss = torch.minimum(surrogate_1, surrogate_2)
+      policy_loss = -torch.minimum(surrogate_1, surrogate_2)
 
       entropy = dist.entropy().sum(dim=-1, keepdim=True)
       loss = policy_loss - self.hparams.entropy_coef * entropy
